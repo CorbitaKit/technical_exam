@@ -24,4 +24,14 @@ abstract class TestCase extends BaseTestCase
         Sanctum::actingAs($user);
         return $user;
     }
+
+    public function createUser(): array
+    {
+        return [
+            'email' => 'test@email.com',
+            'name' => "Test User",
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ];
+    }
 }
