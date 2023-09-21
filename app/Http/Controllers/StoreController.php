@@ -28,7 +28,8 @@ class StoreController extends Controller
 
     public function update(Request $request, $store_id)
     {
-        return $this->storeService->doUpdate($request->only('name', 'address'), $store_id);
+        $storeData = $request->only('name', 'address');
+        return $this->storeService->doUpdate($storeData, $store_id);
     }
 
     public function delete($store_id)

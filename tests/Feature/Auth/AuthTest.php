@@ -4,6 +4,7 @@ namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\User;
 
 class AuthTest extends TestCase
 {
@@ -11,10 +12,9 @@ class AuthTest extends TestCase
     public function test_user_can_log_in()
     {
         $user = $this->generateUser();
-
         $response = $this->postJson(route('auth.login', [
             'email' => $user->email,
-            'password' => $user->password
+            'password' => 'password'
         ]));
         $response->assertStatus(200);
 
@@ -45,7 +45,7 @@ class AuthTest extends TestCase
 
         $response = $this->postJson(route('auth.login', [
             'email' => $user->email,
-            'password' => 'password'
+            'password' => 'password123'
         ]));
         $response->assertUnauthorized();
     }

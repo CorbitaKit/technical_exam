@@ -15,7 +15,7 @@ abstract class TestCase extends BaseTestCase
     {
         return User::factory()->create([
             "email" => "test@email.com",
-            "password" => Hash::make("password")
+            "password" => 'password'
         ]);
     }
 
